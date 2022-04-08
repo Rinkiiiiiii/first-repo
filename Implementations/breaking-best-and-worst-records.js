@@ -14,17 +14,14 @@ var maximumTally = 0;
 var maximumIndex = 0;
 
 
-function getMinimum (scores, tallyIndex, minimum) {
+function getMinimum (scores, tallyIndex) {
     if (scores[tallyIndex] < minimum) {
-        console.log ("minimum= " + minimum);
         minimum = scores[tallyIndex];
         minimumTally++;
-        console.log ("minimum= " + minimum);
-        console.log ("minimumTally= " + minimumTally);
     }
 }
 
-function getMaximum (scores, tallyIndex, maximum) {
+function getMaximum (scores, tallyIndex) {
     if (scores[tallyIndex] > maximum) {
         maximum = scores[tallyIndex];
         maximumTally++;
@@ -36,9 +33,9 @@ function runIndex (tallyIndex, scores) {
         getMinimum(scores, tallyIndex, minimum);
         getMaximum(scores, tallyIndex, maximum);
     }
-    return(maximumTally, minimumTally);
 }
 
 runIndex(tallyIndex, scores);
 
 console.log (maximumTally, minimumTally);
+//return (maximumTally + " " + minimumTally);

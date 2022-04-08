@@ -1,58 +1,25 @@
-'use strict';
-
-const fs = require('fs');
-
-process.stdin.resume();
-process.stdin.setEncoding('utf-8');
-
-let inputString = '';
-let currentLine = 0;
-
-process.stdin.on('data', function(inputStdin) {
-    inputString += inputStdin;
-});
-
-process.stdin.on('end', function() {
-    inputString = inputString.split('\n');
-
-    main();
-});
-
-function readLine() {
-    return inputString[currentLine++];
-}
-
-/*
- * Complete the 'getTotalX' function below.
- *
- * The function is expected to return an INTEGER.
- * The function accepts following parameters:
- *  1. INTEGER_ARRAY a
- *  2. INTEGER_ARRAY b
- */
-
-function getTotalX(a, b) {
-    // Write your code here
+var a = [2,4];
+var b = [16,32,96];
     
-    var factors = a;
-    var factorsLength = factors.length;
-    var factorsCheck = true;
-    var factorsAnswerCheck = false;
-    var factorsIndex = 0;
+var factors = a;
+var factorsLength = factors.length;
+var factorsCheck = true;
+var factorsAnswerCheck = false;
+var factorsIndex = 0;
 
-    var multiples = b;
-    var multiplesLength = multiples.length;
-    var multiplesCheck = true;
-    var multiplesAnswerCheck = false;
-    var multiplesIndex = 0;
+var multiples = b;
+var multiplesLength = multiples.length;
+var multiplesCheck = true;
+var multiplesAnswerCheck = false;
+var multiplesIndex = 0;
 
-    var answer = 0;
-    var lastFactorsElement = factors[factorsLength - 1];
-    var upperLimit = multiples[0]+1;
+var answer = 0;
+var lastFactorsElement = factors[factorsLength - 1];
+var upperLimit = multiples[0]+1;
 
-    var numChecker = 0;
+var numChecker = 0;
 
-    function getFactors(factors, factorsIndex, factorsLength, factorsCheck, numChecker) {
+function getFactors(factors, factorsIndex, factorsLength, factorsCheck, numChecker) {
     while (factorsCheck != false && factorsIndex < factorsLength) {
         if ( numChecker % (factors[factorsIndex]) != 0 ) {
         factorsCheck = false;
@@ -65,9 +32,9 @@ function getTotalX(a, b) {
     else {
         factorsAnswerCheck = false;
     }
-    }
+}
 
-    function getMultiples(multiples, multiplesIndex, multiplesLength, multiplesCheck, numChecker) {
+function getMultiples(multiples, multiplesIndex, multiplesLength, multiplesCheck, numChecker) {
     while (multiplesCheck != false && multiplesIndex < multiplesLength) {
         if ( (multiples[multiplesIndex]) % numChecker != 0 ) {
         multiplesCheck = false;
@@ -80,11 +47,11 @@ function getTotalX(a, b) {
     else {
         multiplesAnswerCheck = false;
     }
-    }
+}
 
 
 
-    function runAndTally() {
+function runAndTally() {
     for (numChecker = lastFactorsElement ; numChecker < upperLimit ; numChecker++) {
 
         getFactors(factors, factorsIndex, factorsLength, factorsCheck, numChecker);
@@ -95,30 +62,9 @@ function getTotalX(a, b) {
         answer++;
         }
     }
-    }
+}
 
     runAndTally();
     
-    return(answer);
+    console.log (answer);
 
-}
-
-function main() {
-    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
-
-    const firstMultipleInput = readLine().replace(/\s+$/g, '').split(' ');
-
-    const n = parseInt(firstMultipleInput[0], 10);
-
-    const m = parseInt(firstMultipleInput[1], 10);
-
-    const arr = readLine().replace(/\s+$/g, '').split(' ').map(arrTemp => parseInt(arrTemp, 10));
-
-    const brr = readLine().replace(/\s+$/g, '').split(' ').map(brrTemp => parseInt(brrTemp, 10));
-
-    const total = getTotalX(arr, brr);
-
-    ws.write(total + '\n');
-
-    ws.end();
-}

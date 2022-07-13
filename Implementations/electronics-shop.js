@@ -1,7 +1,7 @@
 
-var keyboards = [4];
-var drives = [5];
-var b = 5;
+// var keyboards = [4];
+// var drives = [5];
+// var b = 5;
 // debugging
 
 var possibilities = [];

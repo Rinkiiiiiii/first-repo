@@ -1,6 +1,6 @@
 
-var steps = 8;
-var path = ("UDDDUDUU");
+// var steps = 8;
+// var path = ("UDDDUDUU");
 // debugging
 
 var UPCounter = 0;
@@ -20,12 +20,14 @@ for (let i = 0 ; i < path.length ; i++){
     } else if (path[i] == "D" && UPCounter != 0){
         UPCounter--;
     }
-    console.log ("path[i] =",path[i]);
-    console.log ("UPCounter =",UPCounter);
-    console.log ("DOWNCounter =", DOWNCounter);
-    console.log ("numof valleys =", numOfValleys);
-    console.log ("      ");
+    // console.log ("path[i] =",path[i]);
+    // console.log ("UPCounter =",UPCounter);
+    // console.log ("DOWNCounter =", DOWNCounter);
+    // console.log ("numof valleys =", numOfValleys);
+    // console.log ("      ");
 }
 
-console.log ("numOfValleys =", numOfValleys);
-console.log ("path =", path);
+// console.log ("numOfValleys =", numOfValleys);
+// console.log ("path =", path);
+
+return numOfValleys;

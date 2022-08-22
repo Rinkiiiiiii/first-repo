@@ -1,7 +1,7 @@
 
-var x = 2;
-var y = 5;
-var z = 4;
+// var x = 2;
+// var y = 5;
+// var z = 4;
 // debugging
 
 if (Math.abs(x - z) < Math.abs(y - z)){
